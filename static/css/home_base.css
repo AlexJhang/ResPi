@@ -1,0 +1,52 @@
+html,body{
+    height: 100%;
+  }
+nav{
+    /*height: 50px;*/
+    position: absolute;
+    top:0;
+    z-index: 900;
+}
+.main_content{
+    min-height: 100%;
+    overflow:scroll;
+    display: -webkit-flex;
+    /* 从左端开始沿水平轴防止flex item */
+    flex-direction: row;
+    flex-wrap: nowrap;
+    /* flex item在主轴上的对齐方式，这里定义左对齐 */
+    justify-content: flex-start;
+    /* 定义交叉轴对其方式 */
+    align-items: flex-start
+}
+
+footer{
+    position: relative;
+    /*top: -100px;*/
+    top: -100px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.column {  
+    height: 600px;
+    overflow:scroll;
+
+}
+.content_row {
+    content: "";
+    display: table;
+    clear: both;
+    width: 100%;
+    height: 100%;
+}
+.camera_monitor{
+    top:50%;
+}
+.controler{
+    padding: 50px;
+}
+.camera_window{
+    background-color: blueviolet;
+    height: 480px;
+    width: 640px;
+}

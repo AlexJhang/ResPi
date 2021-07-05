@@ -1,0 +1,29 @@
+{% extends 'home_base.html' %}
+
+{% block main_content %} 
+  {% for panel in panels %}
+    <div class="column"
+      style="background-color:{{panel.bk_color}}"
+      >
+    {% if not dis_funcs %}
+      {% include panel.url%}
+    {% endif %}
+    </div>
+  {% endfor %}
+{% endblock  %}
+
+
+{% block end %}
+<script>
+  function refresh_column_height() {
+    var browser_height = $(document.body).height();
+    //var browser_height = $(document.body).outerHeight();
+    browser_height -= $("#header").outerHeight() + $("#footer").outerHeight();
+    browser_height += 7
+    //console.log($(document.body).height(),$("#header").outerHeight() ,$("#footer").outerHeight() );
+    $("div.column").css("height",browser_height);
+  }
+  refresh_column_height();
+  $(window).resize(refresh_column_height);
+</script>  
+{% endblock  %}
