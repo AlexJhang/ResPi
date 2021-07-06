@@ -1,12 +1,13 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<div>
+<link rel="stylesheet"  href="../static/css/monitor.css"  type="text/css">
+<div class="main">
     <div >
       <img class="camera_monitor" src="{{ url_for('video_feed') }}">
       <!-- 640 x 480 -->
       <!-- <div class="camera_window"></div>-->
     </div>
     <p id="frame_rate">speed: XX frame/sec. </p>
-    <p id="frame_count"> </p>
+    <p id="frame_count"> monitor test </p>
     <script>
       function polling_info(){
         $.ajax({
