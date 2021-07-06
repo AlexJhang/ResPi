@@ -29,7 +29,9 @@ footer{
 }
 .column {  
     height: 600px;
+    width:50%;
     overflow:scroll;
+    border-style: 0;
 
 }
 .content_row {

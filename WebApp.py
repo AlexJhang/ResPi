@@ -7,7 +7,7 @@ from camera import LocalCamera
 
 # vars
 DISABLE_FUNCS = False
-FUNC_PANELS = ['controler.html', 'monitor.html']
+FUNC_PANELS = ['controler', 'monitor']
 DISABLE_CAMERA = False | DISABLE_FUNCS 
 
 PORT = 8090

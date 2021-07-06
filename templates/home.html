@@ -2,13 +2,13 @@
 
 {% block main_content %} 
   {% for panel in panels %}
-    <div class="column"
+    <iframe class="column"
       style="background-color:{{panel.bk_color}}"
-      >
-    {% if not dis_funcs %}
-      {% include panel.url%}
-    {% endif %}
-    </div>
+      {% if not dis_funcs %}
+        src="{{ url_for(panel.url) }}"
+      {% endif %}    
+      frameborder="0"
+    ></iframe>
   {% endfor %}
 {% endblock  %}
 
@@ -17,7 +17,6 @@
 <script>
   function refresh_column_height() {
     var browser_height = $(document.body).height();
-    //var browser_height = $(document.body).outerHeight();
     browser_height -= $("#header").outerHeight() + $("#footer").outerHeight();
     browser_height += 7
     //console.log($(document.body).height(),$("#header").outerHeight() ,$("#footer").outerHeight() );
