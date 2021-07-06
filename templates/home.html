@@ -1,14 +1,17 @@
 {% extends 'home_base.html' %}
 
 {% block main_content %} 
+
   {% for panel in panels %}
-    <iframe class="column"
-      style="background-color:{{panel.bk_color}}"
-      {% if not dis_funcs %}
-        src="{{ url_for(panel.url) }}"
-      {% endif %}    
-      frameborder="0"
-    ></iframe>
+    <div class="column">
+      <a href="{{ url_for(panel.url) }}">
+        <h3>{{ panel.url }}</h3>
+      </a>
+      <iframe 
+        style="background-color:{{panel.bk_color}}"
+        frameborder="0"
+      ></iframe>
+    </div>
   {% endfor %}
 {% endblock  %}
 
