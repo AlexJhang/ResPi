@@ -4,6 +4,7 @@ import time
 import cv2
 from importlib import import_module
 from camera import LocalCamera
+import json
 
 # vars
 DISABLE_FUNCS = False
@@ -44,14 +45,15 @@ def video_feed():
 @app.route('/info', methods=["GET"])
 def info():
     json_data = dict()
-    json_data["frame_count"] = cap.frame_count
-    return jsonify(json_data)
+    return  jsonify(json_data)
 
-@app.route('/camera/info', methods=["GET"])
+@app.route('/camera/info')#, methods=["GET"])
 def camera_info():
     json_data = dict()
     json_data["frame_rate"] = cap.frame_rate
+    json_data["throughput"] = cap.throughput
     cap.set_performance()
+    #return Response(json.dumps(json_data),mimetype='application/json')
     return jsonify(json_data)
 
 @app.route("/monitor")

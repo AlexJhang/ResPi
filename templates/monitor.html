@@ -3,8 +3,6 @@
 <div class="main">
     <div >
       <img class="camera_monitor" src="{{ url_for('video_feed') }}">
-      <!-- 640 x 480 -->
-      <!-- <div class="camera_window"></div>-->
     </div>
     <p id="frame_rate">speed: XX frame/sec. </p>
     <p id="frame_count"> monitor test </p>
@@ -16,8 +14,10 @@
           dataType: "json",
           timeout: 10000,
           success: function (jdata) {
-            //console.log(jdata["frame_count"]);
-            $("#frame_rate").text("speed: " + jdata["frame_rate"].toFixed(2) + " frames/sec.");
+            $("#frame_rate").text("speed: " + 
+              jdata["frame_rate"].toFixed(2) + " frames/sec. (" +
+              (jdata["throughput"]/1000000.0).toFixed(2) + " MB/s.)"
+            );
           }
         });
       };
